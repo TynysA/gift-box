@@ -1,5 +1,14 @@
 // constants/products.ts
-export const products = [
+export type Product = {
+  id: string;
+  category: string;
+  title: string;
+  detail: string;
+  price: number;
+  image: string;
+};
+
+export const products: Product[] = [
   {
     id: "1",
     category: "candy",
@@ -105,4 +114,6 @@ export const boxSizePrices = {
   small: 2000,
   medium: 4000,
   large: 8000,
-};
+} as const;
+
+export type BoxSize = keyof typeof boxSizePrices;

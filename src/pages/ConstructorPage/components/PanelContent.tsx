@@ -1,11 +1,12 @@
 // Теперь PanelContent принимает addItem:
 import {products} from '../../../feature/constructor/constructorData.ts';
+import type {SidebarTabId} from './ConstructorSidebar.tsx';
 
 export function PanelContent({
                                tab,
                                addItem,
                              }: {
-  tab: string | null;
+  tab: SidebarTabId | null;
   addItem: (id: string) => void;
 }) {
   if (!tab) return null;
@@ -30,7 +31,7 @@ export function PanelContent({
           className="border rounded-md overflow-hidden shadow-sm hover:shadow-md transition p-2"
         >
           <img src={item.image} className="w-full h-24 object-cover" />
-          <div className="text-sm mt-2">{item.name}</div>
+          <div className="text-sm mt-2">{item.title}</div>
         </button>
       ))}
     </div>

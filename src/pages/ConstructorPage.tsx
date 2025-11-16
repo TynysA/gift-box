@@ -1,5 +1,5 @@
 import { useState } from "react";
-import {SidebarTabs} from './ConstructorPage/components/ConstructorSidebar.tsx';
+import {SidebarTabs, type SidebarTabId} from './ConstructorPage/components/ConstructorSidebar.tsx';
 import {PanelContent} from './ConstructorPage/components/PanelContent.tsx';
 import {products} from '../feature/constructor/constructorData.ts';
 import {GiftBox} from './ConstructorPage/components/GiftBoxCanvas.tsx';
@@ -8,12 +8,12 @@ export function ConstructorPage() {
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
 
   // NEW SIDEBAR STATES
-  const [activeTab, setActiveTab] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState<SidebarTabId | null>(null);
   const [isHovered, setIsHovered] = useState(false);
   const [isClickedOpen, setIsClickedOpen] = useState(false);
 
   const isOpen = isHovered || isClickedOpen;
-  const onTabClick = (tab: string) => {
+  const onTabClick = (tab: SidebarTabId) => {
     // если открыта и нажали на тот же таб → закрыть
     if (isClickedOpen && activeTab === tab) {
       setIsClickedOpen(false);
@@ -30,7 +30,7 @@ export function ConstructorPage() {
     setActiveTab(tab);
     setIsClickedOpen(true);
   };
-  const onHoverTab = (tab: string) => {
+  const onHoverTab = (tab: SidebarTabId) => {
     if (!isClickedOpen) {
       setIsHovered(true)
       setActiveTab(tab);
@@ -44,7 +44,6 @@ export function ConstructorPage() {
     }
   }
   const addItem = (id: string) => {
-    console.log('fsdfs')
     if (!selectedItems.includes(id)) {
       setSelectedItems([...selectedItems, id]);
     }
@@ -62,8 +61,6 @@ export function ConstructorPage() {
         activeTab={activeTab}
         onClick={onTabClick}
         onHoverTab={onHoverTab}
-        setIsHovered={setIsHovered}
-        isLocked={isClickedOpen}
       />
 
 

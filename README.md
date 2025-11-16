@@ -1,73 +1,70 @@
-# React + TypeScript + Vite
+# 🎁 Sham Gift Box Constructor
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern interactive **gift box constructor** built with **React + TypeScript + TailwindCSS**.
+Users can choose box color and size, browse product categories, add items to the box, and see a live preview with total price calculation.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+### 🔧 Sidebar With Hover/Click Behavior
+- Hover to temporarily open the panel
+- Click to pin it open
+- Smooth open/close animation
+- Categories like Box, Items, Flowers, Candy, Cards, and more
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 📦 Gift Box Customizer
+Users can adjust:
+- **Box Color** (white, pink, kraft, black)
+- **Box Size** (small, medium, large)
+- Box preview dynamically updates its:
+  - background color
+  - border
+  - physical size (visual scaling)
 
-## Expanding the ESLint configuration
+### 🛍 Product Selection
+- Products are displayed based on the active category
+- Clicking an item adds it to the box
+- Right-side preview shows items in a responsive grid
+- Clean, simple visual layout
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 💰 Total Price Calculation
+- Calculates the sum of selected product prices
+- Adds an extra cost for box size
+- Summary panel displays:
+  - items total
+  - box price
+  - final total amount
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🎨 UI Logic Overview
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Sidebar Behavior
+- Hover ➝ open panel
+- Mouse leave ➝ close (if not pinned)
+- Click ➝ pin open
+- Click again ➝ close
+- Smooth transitions using Tailwind animations
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Panel Content
+- Dynamically shows items filtered by category
+- Image-based grid layout
+- Each item adds to the constructor with one click
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### GiftBox Component
+- Real-time preview of the gift box
+- Resizable canvas depending on selected box size
+- Color changes instantly
+- Bottom settings panel includes:
+  - color selection
+  - size selection
+  - total summary box
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+## 🛠 Installation & Running
+
+```sh
+npm install
+npm run dev

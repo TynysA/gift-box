@@ -1,25 +1,34 @@
 import { useState } from "react";
 import {boxSizePrices} from '../../../feature/constructor/constructorData.ts';
+import type {BoxSize, Product} from '../../../feature/constructor/constructorData.ts';
 
-export function GiftBox({ items, products }) {
-  const [boxColor, setBoxColor] = useState("white");
-  const [boxSize, setBoxSize] = useState("medium");
+type GiftBoxProps = {
+  items: string[];
+  products: Product[];
+};
 
-  const boxColorOptions = {
-    white: "#ffffff",
-    pink: "#f9d6db",
-    kraft: "#d8b79c",
-    black: "#191919"
-  };
-  const sizeStyles = {
-    small: "w-[350px] h-[250px]",
-    medium: "w-[600px] h-[380px]",
-    large: "w-[800px] h-[500px]",
-  };
+const boxColorOptions = {
+  white: "#ffffff",
+  pink: "#f9d6db",
+  kraft: "#d8b79c",
+  black: "#191919"
+} as const;
+
+const sizeStyles = {
+  small: "w-[350px] h-[250px]",
+  medium: "w-[600px] h-[380px]",
+  large: "w-[800px] h-[500px]",
+} as const;
+
+type BoxColor = keyof typeof boxColorOptions;
+
+export function GiftBox({ items, products }: GiftBoxProps) {
+  const [boxColor, setBoxColor] = useState<BoxColor>("white");
+  const [boxSize, setBoxSize] = useState<BoxSize>("medium");
 
   const itemsTotal = items.reduce((sum, id) => {
-    const p = products.find((prod) => prod.id === id);
-    return p ? sum + p.price : sum;
+    const product = products.find((prod) => prod.id === id);
+    return product ? sum + product.price : sum;
   }, 0);
 
   // Итого
@@ -78,7 +87,7 @@ export function GiftBox({ items, products }) {
               {Object.entries(boxColorOptions).map(([type, color]) => (
                 <button
                   key={type}
-                  onClick={() => setBoxColor(type)}
+                  onClick={() => setBoxColor(type as BoxColor)}
                   className={`
                   flex items-center border rounded-sm transition 
                   ${boxColor === type ? "border-red-700 bg-red-50" : "border-gray-300"}
@@ -101,7 +110,7 @@ export function GiftBox({ items, products }) {
               {Object.entries(sizeStyles).map(([size]) => (
                 <button
                   key={size}
-                  onClick={() => setBoxSize(size)}
+                  onClick={() => setBoxSize(size as BoxSize)}
                   className={`
                   flex items-center border rounded-sm transition 
                   ${boxSize === size ? "border-red-700 bg-red-50" : "border-gray-300"}

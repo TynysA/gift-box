@@ -1,10 +1,8 @@
 export function SidebarTabs({ activeTab, onClick, setIsHovered, isLocked, onHoverTab }) {
   const tabs = [
-    { id: "box", label: "Box" },
     { id: "items", label: "Items" },
     { id: "flowers", label: "Flowers" },
-    { id: "candy", label: "Candy" },
-    { id: "cards", label: "Cards" },
+    { id: "candy", label: "Candy" }
   ];
 
   return (

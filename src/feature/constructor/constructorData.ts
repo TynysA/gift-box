@@ -57,14 +57,6 @@ export const products = [
     image: "https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYW5kbWFkZSUyMHNvYXB8ZW58MXx8fHwxNzYzMTYwNDQ2fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
   },
   {
-    id: "8",
-    category: "cards",
-    title: "Postcards Set",
-    detail: "5 designs",
-    price: 6000,
-    image: "https://images.unsplash.com/photo-1478293888741-aee4356f71c7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxncmVldGluZyUyMHBvc3RjYXJkc3xlbnwxfHx8fDE3NjMyMDQzNDF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-  },
-  {
     id: "9",
     category: "decor",
     title: "Silk Ribbon",
